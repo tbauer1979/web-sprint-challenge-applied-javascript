@@ -1,4 +1,26 @@
-const Tabs = (topics) => {
+const Tabs = ([optnOne,optnTwo,optnThree]) => {
+  
+const tabsDiv = document.createElement('div')
+const tabsOne = document.createElement('div')
+const tabsTwo = document.createElement('div')
+const tabsThree = document.createElement('div')
+
+tabsDiv.classList.add("topics")
+tabsOne.classList.add('tab')
+tabsTwo.classList.add('tab')
+tabsThree.classList.add('tab')
+
+tabsDiv.appendChild(tabsOne)
+tabsDiv.appendChild(tabsTwo)
+tabsDiv.appendChild(tabsThree)
+
+tabsOne.textContent = `${optnOne}`
+tabsOne.textContent = `${tabsTwo}`
+tabsOne.textContent = `${tabsThree}`
+
+return Tabs
+
+  
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
