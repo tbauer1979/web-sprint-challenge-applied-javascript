@@ -44,16 +44,9 @@ const tabsAppender = (selector) => {
 
 axios.get(`https://lambda-times-api.herokuapp.com/topics`) 
 
-  .then(response =>{ 
-    response.data.topics.forEach( (header) => {
-      let listItem = document.createElement('div');
-      listItem.classList.add('tab');
-      let newText = document.createTextNode (header);
-      listItem.tectContent = header;
-      document.querySelector('topics').appendChild(listItem);
-
-    })
-
+  .then(info=>{ 
+  const cards = document.querySelector('.header-container') 
+  cards.appendChild(Tabs(info)) 
   }) 
     
 

@@ -2,10 +2,7 @@ import axios from 'axios';
 
 
 
-const Card = (key) => {
-
-  key.ForEach( (articleComponent) => {
-
+const Card = (article) => {
   const cardsDiv = document.createElement('div')
   const cardsDivone = document.createElement('div')
   const cardsDivtwo = document.createElement('div')
@@ -24,11 +21,11 @@ const Card = (key) => {
   cardsDivthree.appendChild(cardsImg)
   cardsDivthree.appendChild(cardsSpan)
 
-  cardsDivone.textContent = `${articleComponent.headline}`
-  cardsImg.setAttribute('src',`${articleComponent.authorPhoto}`)
-  cardsSpan.textContent = `${articleComponent.authorName}`
+  cardsDivone.textContent = `${article.headline}`
+  cardsImg.setAttribute('src',`${article.authorPhoto}`)
+  cardsSpan.textContent = `${article.authorName}`
 
-  document.querySelector('.cards-container').appendChild(container_div) ;
+  return cardsDiv
 
   // TASK 5
   // ---------------------
@@ -48,21 +45,15 @@ const Card = (key) => {
   //   </div>
   // </div>
   //
-})
 }
-
-
-
-
-
 const cardAppender = (selector) => {
 
     axios.get(`https://lambda-times-api.herokuapp.com/articles`) 
-    .then(response =>{ 
-      for(key in response.data.articles) {
-        Card(response.data.articles[key]);
-      }
-     }) 
+    .then(info=>{ 
+      console.log(info)
+    const cards = document.querySelector('.header-container') 
+    cards.appendChild(Card(info.data)) 
+    }) 
       
     .catch(error=>{ 
      console.log(error) 

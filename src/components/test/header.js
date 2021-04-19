@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = (title, date, temp) => {
 
 const firstDiv = document.createElement('div')
 const spanOne = document.createElement('span')
@@ -28,10 +28,12 @@ return Header
   //  </div>
   //
 }
-
+const object = []
 const headerAppender = (selector) => {
   // TASK 2
-
+  const place = document.querySelector('.header-container') 
+  const newHeader = document.createElement(Header(object))
+  place.appendChild(newHeader)
   // ---------------------
   // Implement this function taking a css selector as its only argument.
   // It should create a header using the Header component above, passing arguments of your choosing.
